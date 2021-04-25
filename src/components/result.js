@@ -1,7 +1,7 @@
 import './result.css';
 
 let Result = () => {
-    let SearchAnimeRender = ({key,anime}) => {
+    let SearchAnimeRender = ({ key, anime }) => {
         return (
             <div className="animeRes">
                 Anime: {anime}
@@ -9,10 +9,24 @@ let Result = () => {
         )
     }
 
-    let searchAnimeRes = ['bleach','naruto','gintama'];
-    return(
+    let resJSON;
+    let request = new XMLHttpRequest();
+
+    // console.log(searchInput)
+    request.open('GET', `https://api.jikan.moe/v3/anime/20`);
+
+    request.onload = function () {
+        resJSON = JSON.parse(request.response);
+        console.log(resJSON);
+    };
+
+    request.send();
+
+    let searchAnimeRes = ['bleach', 'naruto', 'gintama'];
+    return (
         <div className="animeResult">
-            {searchAnimeRes.map((anime) => <SearchAnimeRender key={anime} anime={anime}/>)}
+            {searchAnimeRes.map((anime) => <SearchAnimeRender key={anime} anime={anime} />)}
+            {resJSON}
         </div>
     );
 }
