@@ -1,13 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
 :root{
-	--clr-main: #ff3467;
-	--clr-primary: #3f3f3f;
-	--clr-secondary: #f5f5f5;
+	--clr-main: #FF0547;
+	--clr-main-light: #FF1956;
+	--clr-primary-dark: #202020;
+	--clr-primary-light: #242424;
+	--clr-primary-lighter: #2f2f2f;
+	--clr-white: #f5f5f5;
+	--clr-text: #f5f5f5;
+	--ff-body: 'Noto Sans JP', sans-serif;
+}
+
+*{
+	margin: 0%;
+	padding: 0%;
+	box-sizing: border-box;
+}
+
+button{
+	font-family:  var(--ff-body);
+	color: var(--clr-text);
+	outline: none;
+}
+
+button:hover{
+    cursor: pointer;
+    border: var(--clr-main) solid 2px;
+}
+
+button:focus{
+    background-color: var(--clr-main);
+}
+
+input[type=text]{
+	border: none;
+    border-radius: 5px;
+    padding: 0px 10px 0px 10px;
+    background-color: var(--clr-primary-lighter);
+	color: var(--clr-text);
+	outline: none;
+	-webkit-transition: 0.2s;
+    transition: 0.2s;
+}
+
+input[type=text]:focus{
+    border: var(--clr-white) solid 2px;
+    /* outline: none; */
 }
 
 .app{
 	background-color: var(--clr-primary);
-	color: var(--clr-secondary);
+	color: var(--clr-text);
 	min-height: 100vh;
 	display: flex;
 	flex-direction: row;
+	font-family: var(--ff-body);
 }

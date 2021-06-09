@@ -1,3 +1,6 @@
+# DO NOT LOOK AT CODE, VERY CRINGE + DOES NOT WORK + IS NOT COOMPLETE
+## BAII TTYL
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

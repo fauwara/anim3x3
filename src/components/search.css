@@ -1,4 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 .search{
     flex: 1;
-    background-color: #202020;
+    background-color: var(--clr-primary-dark);
+    display: flex;
+    justify-content: center;
+}
+
+.search-form{
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+    min-width: 350px;
+}
+
+#search-form-input{
+    height: 35px;
+    flex: 1;
+}
+
+.search-form-button{
+    background-color: transparent;
+    color: var(--clr-text);
+    border: var(--clr-main-light) solid 2px;
+    border-radius: 5px;
+    width: 100px;
+    height: 35px;
+    margin-left: 10px;
+    -webkit-transition: 0.3s;
+    transition: 0.2s;
 }
