@@ -1,4 +1,4 @@
 .animeResult{
     flex: 2;
-    background-color: #242424;
+    background-color: var(--clr-primary-light);
 }

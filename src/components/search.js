@@ -54,19 +54,22 @@ function Search() {
         setSearchInput(tempSearchInput);
     }
 
-        return (
-            <div className="search">
-                
-                {/* search bar */}
+    return (
+        <div className="search">
+
+            {/* search bar */}
+            <div className="search-bar">
                 <div className="search-form">
                     <input id="search-form-input" type="text" />
                     <button onClick={getSearchInput} className="search-form-button">SEARCH</button>
                 </div>
-
-                {/* search result */}
-                <SearchResult searchedAnime={searchInput}/>
+                <p className="search-note">*Enter a minimum of 3 letters for search.</p>
             </div>
-        );
+
+            {/* search result */}
+            <SearchResult searchedAnime={searchInput} />
+        </div>
+    );
     // }
 
 

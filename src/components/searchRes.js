@@ -1,4 +1,22 @@
+import './searchRes.css'
 import { useState, useEffect } from 'react';
+
+
+let Result = ({item}) => { 
+
+    return (
+        <div className="result">
+            <img className="result-image" src={item.image_url} alt={`${item.title}'s Poster`}/>
+            <div className="result-details">
+                <div>
+                    <h4 className="result-id">{item.mal_id}</h4>
+                    <h4 className="result-title">{item.title}</h4>
+                </div>
+                <button className="result-addButton">ADD</button>
+            </div>
+        </div>
+    )
+};
 
 let SearchResult = (props) => {
 
@@ -8,7 +26,7 @@ let SearchResult = (props) => {
 
     useEffect(() => {
         setIsLoaded(false);
-        fetch(`https://api.jikan.moe/v3/search/anime?q=${props.searchedAnime}&limit=3`)
+        fetch(`https://api.jikan.moe/v3/search/anime?q=${props.searchedAnime}&limit=5`)
             .then(res => res.json())
             .then(
                 (result) => {
@@ -31,19 +49,21 @@ let SearchResult = (props) => {
     if (error) {
         return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-        return <div>Loading...</div>;
+        return (
+        <div class="loading-gif">
+            <div>
+                <img src="https://i.imgur.com/JDXVORV.gif" alt="uwu loading gif"/>
+                <p class="loading-gif-label">Loading...</p>
+            </div>
+        </div>
+        );
     } else {
         return (
-            <ul>
-                {searchRes[0]?.title}
-                {/* {console.log(searchRes)} */}
-                {/* {searchRes.products.map(function (item) {
-                    <li>
-                        {item.title}
-                    </li>
-                    }
-                )} */}
-            </ul>
+            <div className="searchResults">
+                {searchRes.map(item => (
+                    <Result key={item.mal_id} item={item}/>
+                ))}
+            </div>
         );
     }
 }

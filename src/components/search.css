@@ -2,22 +2,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 .search{
-    flex: 1;
+    flex: 0.7;
     background-color: var(--clr-primary-dark);
-    display: flex;
-    justify-content: center;
+    min-width: 450px;
+    padding: 0px 50px 0px 50px;
+}
+
+.search-bar{
+    margin-top: 100px;
 }
 
 .search-form{
     display: flex;
     flex-direction: row;
-    margin-top: 100px;
-    min-width: 350px;
+    /* min-width: 350px; */
 }
 
 #search-form-input{
     height: 35px;
     flex: 1;
+}
+
+.search-note{
+    font-size: var(--fs-small);
 }
 
 .search-form-button{
