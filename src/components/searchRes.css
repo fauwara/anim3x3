@@ -21,7 +21,7 @@
 .result{
     display: flex;
     margin-bottom: 15px;
-    border-bottom: var(--clr-primary-lighter) solid 2px;
+    border-bottom: var(--clr-primary-light) solid 2px;
     /* border-radius: 5px; */
     padding-bottom: 15px;
 }

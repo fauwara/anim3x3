@@ -4,8 +4,8 @@
 	--clr-main: #FF0547;
 	--clr-main-light: #FF1956;
 	--clr-primary-dark: #202020;
-	--clr-primary-light: #242424;
-	--clr-primary-lighter: #2f2f2f;
+	--clr-primary-light: #303030;
+	--clr-primary-lighter: #494949;
 	--clr-white: #f5f5f5;
 	--clr-dark-white: #e7e7e9;
 	--clr-text: #f5f5f5;
@@ -45,8 +45,9 @@ input[type=text]{
 	border: none;
     border-radius: 5px;
     padding: 0px 10px 0px 10px;
-    background-color: var(--clr-primary-lighter);
+    background-color: var(--clr-primary-light);
 	color: var(--clr-text);
+	font-family: var(--ff-body);
 	outline: none;
 	-webkit-transition: 0.2s;
     transition: 0.2s;

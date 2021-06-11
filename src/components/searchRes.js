@@ -1,18 +1,24 @@
 import './searchRes.css'
 import { useState, useEffect } from 'react';
 
-
 let Result = ({item}) => { 
+
+    const [animeList, appendAnime] = useState([]);
+
+    let addAnime = () => {
+        console.log(this.bind(this));
+    }
 
     return (
         <div className="result">
+            {console.log(this)}
             <img className="result-image" src={item.image_url} alt={`${item.title}'s Poster`}/>
             <div className="result-details">
                 <div>
                     <h4 className="result-id">{item.mal_id}</h4>
                     <h4 className="result-title">{item.title}</h4>
                 </div>
-                <button className="result-addButton">ADD</button>
+                <button className="result-addButton" onClick={addAnime}>ADD</button>
             </div>
         </div>
     )
@@ -26,7 +32,7 @@ let SearchResult = (props) => {
 
     useEffect(() => {
         setIsLoaded(false);
-        fetch(`https://api.jikan.moe/v3/search/anime?q=${props.searchedAnime}&limit=5`)
+        fetch(`https://api.jikan.moe/v3/search/anime?q=${props.searchedAnime}&limit=4`)
             .then(res => res.json())
             .then(
                 (result) => {
@@ -50,7 +56,7 @@ let SearchResult = (props) => {
         return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
         return (
-        <div class="loading-gif">
+        <div className="loading-gif">
             <div>
                 <img src="https://i.imgur.com/JDXVORV.gif" alt="uwu loading gif"/>
                 <p class="loading-gif-label">Loading...</p>

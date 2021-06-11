@@ -25,6 +25,7 @@
 
 .search-note{
     font-size: var(--fs-small);
+    color: var(--clr-primary-lighter);
 }
 
 .search-form-button{
