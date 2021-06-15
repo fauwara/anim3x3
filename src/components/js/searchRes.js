@@ -1,13 +1,15 @@
-import './searchRes.css'
+import '../css/searchRes.css'
 import { useState, useEffect } from 'react';
 
-let Result = ({item}) => { 
+function Result({item}){ 
 
-    const [animeList, appendAnime] = useState([]);
+    // const [animeList, appendAnime] = useState([]);
 
     let addAnime = () => {
-        console.log(this.bind(this));
+        console.log(this);
     }
+
+    const addAnimeBind = addAnime.bind();
 
     return (
         <div className="result">
@@ -18,7 +20,7 @@ let Result = ({item}) => {
                     <h4 className="result-id">{item.mal_id}</h4>
                     <h4 className="result-title">{item.title}</h4>
                 </div>
-                <button className="result-addButton" onClick={addAnime}>ADD</button>
+                <button className="result-addButton" onClick={addAnimeBind}>ADD</button>
             </div>
         </div>
     )

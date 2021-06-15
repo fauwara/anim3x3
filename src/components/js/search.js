@@ -1,4 +1,4 @@
-import './search.css';
+import '../css/search.css';
 import SearchResult from './searchRes';
 import { useState } from 'react';
 

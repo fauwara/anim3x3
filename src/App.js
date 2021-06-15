@@ -1,6 +1,6 @@
 import './App.css';
-import Search from './components/search.js'
-import Result from './components/result.js'
+import Search from './components/js/search.js'
+import Result from './components/js/result.js'
 
 
 function App() {

@@ -1,4 +1,4 @@
-import './result.css';
+import '../css/result.css';
 
 let Result = () => {
     let SearchAnimeRender = ({ key, anime }) => {
