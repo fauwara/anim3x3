@@ -2,7 +2,7 @@ import '../css/search.css';
 import SearchResult from './searchRes';
 import { useState } from 'react';
 
-function Search() {
+function Search({addedAnime, setAddedAnime}) {
     const [searchInput, setSearchInput] = useState('nar');
     // const [error, setError] = useState(null);
     // const [isLoaded, setIsLoaded] = useState(false);
@@ -67,7 +67,7 @@ function Search() {
             </div>
 
             {/* search result */}
-            <SearchResult searchedAnime={searchInput} />
+            <SearchResult searchedAnime={searchInput} addedAnime={addedAnime} setAddedAnime={setAddedAnime}/>
         </div>
     );
     // }
