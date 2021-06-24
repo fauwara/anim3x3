@@ -4,20 +4,24 @@ import { useState, useEffect } from 'react';
 
 function Result({ item, addedAnime, setAddedAnime}){
 
-    useEffect(() => {
-        console.log(addedAnime);
-    }, [addedAnime])
+    let addAnimeToList = () => {
+        if(addedAnime.length < 9){
+            setAddedAnime([...addedAnime, item]);
+        }else{
+            alert("more than 9 animes");
+        }
+    }
+
 
     return (
         <div className="result">
-            {/* {console.log(this)} */}
             <img className="result-image" src={item.image_url} alt={`${item.title}'s Poster`}/>
             <div className="result-details">
                 <div>
                     <h4 className="result-id">{item.mal_id}</h4>
                     <h4 className="result-title">{item.title}</h4>
                 </div>
-                <button className="result-addButton" onClick={() => setAddedAnime([...addedAnime, item])} >ADD</button>
+                <button className="result-addButton" onClick={ () => addAnimeToList()} >ADD</button>
             </div>
         </div>
     )
@@ -63,6 +67,7 @@ let SearchResult = ({searchedAnime, addedAnime, setAddedAnime}) => {
         </div>
         );
     } else {
+        
         return (
             <div className="searchResults">
                 <ul>

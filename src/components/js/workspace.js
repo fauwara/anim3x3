@@ -1,14 +1,16 @@
 import '../css/result.css';
+import Canvas from './canvas'
 
 let Workspace = ({addedAnime}) => {
 
     return (
         <div className="animeResult">
-            <ul>{
+            {/* <ul>{
                 addedAnime.map(item => (
                     <h1 key={item.mal_id}>{item.title}</h1>
                 ))}
-            </ul>
+            </ul> */}
+            <Canvas addedAnime={addedAnime}/>
         </div>
     );
 
