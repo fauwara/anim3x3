@@ -1,53 +1,57 @@
+import '../css/canvas.css';
 import {useState, useEffect, useRef  } from "react";
 
 const Canvas = ({addedAnime}) => {
-    
-    let canvasHeight = 750;
-    let canvasWidth = 750;
-    
+
+    const [canvasHeight, setCanvasHeight] = useState(900);
+    const [canvasWidth, setCanvasWidth] = useState(900);
+    const [canvasColour, setCanvasColour] = useState('#fff');
+    const [border, setBorder] = useState(20);
+
+    // basically size of a single img in the 3x3.
+    let cell = canvasHeight/3;
     
     const canvas = useRef(null);
 
     // useEffect for drawing on the canvas
     useEffect(() => {
-        if(addedAnime.length && canvas) {
+        if(canvas) {
             const ctx = canvas.current.getContext("2d");
-            ctx.fillStyle = "white";
+            ctx.fillStyle = canvasColour;
             ctx.fillRect(0, 0, canvasHeight, canvasWidth);
 
             // let border = 10;
-            let partitionX = canvasHeight/3;
-            let partitionY = canvasWidth/3;
-            let x = 0;
-            let y = 0;
 
-            for(let i = 0, count = 0 ; count < addedAnime.length && count < 9; count++, i++){
+            let y = 0;
+            for(let x = 0, count = 0; count < addedAnime.length; count++, x++){
                 
-                if (i >= 3){
-                    i = 0;
+                // to reset the x axis after three anime's have been added.
+                if (x >= 3){
+                    x = 0;
                 }
-                const animeImage = new Image();
-                animeImage.src = addedAnime[count].image_url;
-                ctx.drawImage(animeImage, (partitionX*(i)), y);
+
+                const img = new Image();
+                img.src = addedAnime[count].image_url;
+
+                img.onload = () => {
+                    let clippedImgX = (img.width > cell) ? ((img.width/2)-(cell/2)) : 0;
+                    let clippedImgY = (img.height > cell) ? ((img.height/2)-(cell/2)) : 0;
+
+                    // params: img, clipWidth, clipHeight,
+                    ctx.drawImage(img, clippedImgX, clippedImgY, img.width, img.width, (cell*(x)), y, 300, 300);
+                    x = cell*(x);
+                    y = cell*((Math.floor((count+1)/3)));
+                }
                 
-                
-                console.log(`i: ${i}`);
-                x = partitionX*(i+1);
-                console.log(`x: ${x}`);
-                y = partitionY*((Math.floor((count+1)/3)));
-                // y = partitionY*(i+1);
-                // console.log(`i: ${i}`)
-                // y = border+(40*(i+1));
             }
-        //   ctx.drawImage(images[0], 10, 10);
         }
       }, [addedAnime, canvas])
 
 
 
     return(
-        <div className="Canvas">
-            <canvas ref={canvas} width={canvasWidth} height={canvasHeight}/>
+        <div className="canvas-parent">
+            <canvas className="canvas" ref={canvas} width={canvasWidth} height={canvasHeight}/>
         </div>
     );
     

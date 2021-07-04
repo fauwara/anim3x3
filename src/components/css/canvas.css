@@ -1,0 +1,11 @@
+.canvas-parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.canvas{
+    /* border: solid 10px black; */
+    width: 600px;
+}
