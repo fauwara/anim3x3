@@ -24,18 +24,19 @@
 }
 
 .search-note{
+    padding-top: 2px;
     font-size: var(--fs-small);
     color: var(--clr-primary-lighter);
 }
 
-.search-form-button{
+#search-form-button{
     background-color: transparent;
-    color: var(--clr-text);
-    border: var(--clr-main-light) solid 2px;
+    /* color: var(--clr-text); */
+    /* border: var(--clr-main-light) solid 2px; */
     border-radius: 5px;
     width: 100px;
     height: 35px;
     margin-left: 10px;
-    -webkit-transition: 0.3s;
-    transition: 0.2s;
+    /* -webkit-transition: 0.3s;
+    transition: 0.2s; */
 }

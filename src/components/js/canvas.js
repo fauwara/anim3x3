@@ -42,7 +42,6 @@ const Canvas = ({addedAnime}) => {
                     x = cell*(x);
                     y = cell*((Math.floor((count+1)/3)));
                 }
-                
             }
         }
       }, [addedAnime, canvas])

@@ -30,16 +30,26 @@ button{
 	width: 75px;
 	height: 30px;
 	border-radius: 5px;
+	-webkit-transition: 0.3s;
+    transition: 0.2s;
 }
 
 button:hover{
     cursor: pointer;
+	background-color: var(--clr-main);
     border: var(--clr-main) solid 2px;
 }
 
-button:focus{
-    background-color: var(--clr-main);
+button:disabled,
+button[disabled]{
+	cursor: context-menu;
+    border: var(--clr-primary-lighter) solid 2px;
+	color: var(--clr-primary-lighter);
 }
+
+/* button:focus{
+    background-color: var(--clr-main);
+} */
 
 input[type=text]{
 	border: none;
@@ -57,6 +67,33 @@ input[type=text]:focus{
     border: var(--clr-white) solid 2px;
     /* outline: none; */
 }
+
+input[type=submit]{
+	font-family:  var(--ff-body);
+	color: var(--clr-text);
+	outline: none;
+	border: var(--clr-main) solid 2px;
+	width: 75px;
+	height: 30px;
+	border-radius: 5px;
+	-webkit-transition: 0.3s;
+    transition: 0.2s;
+}
+
+input[type=submit]:hover{
+	cursor: pointer;
+	border: var(--clr-main) solid 2px;
+	color: var(--clr-dark-white);
+	background-color: var(--clr-main);
+}
+
+input[type=submit]:disabled,
+input[type=submit][disabled]{
+	cursor: context-menu;
+    border: var(--clr-primary-lighter) solid 2px;
+	color: var(--clr-primary-lighter);
+}
+
 
 .app{
 	background-color: var(--clr-primary);
