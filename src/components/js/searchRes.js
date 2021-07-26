@@ -12,7 +12,6 @@ function Result({ item, addedAnime, setAddedAnime}){
         }
     }
 
-
     return (
         <div className="result">
             <img className="result-image" src={item.image_url} alt={`${item.title}'s Poster`}/>
@@ -27,15 +26,20 @@ function Result({ item, addedAnime, setAddedAnime}){
     )
 };
 
-let SearchResult = ({searchedAnime, addedAnime, setAddedAnime}) => {
+let SearchResult = ({searchedAnime, addedAnime, setAddedAnime, searched}) => {
 
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [searchRes, setRes] = useState([]);
 
     useEffect(() => {
-        setIsLoaded(false);
-        fetch(`https://api.jikan.moe/v3/search/anime?q=${searchedAnime}&limit=4`)
+        // console.log(searchedAnime);
+        // if (searchedAnime){
+        //     setSearched(true);
+        // }else{
+            // setSearched(false);
+            setIsLoaded(false);
+            fetch(`https://api.jikan.moe/v3/search/anime?q=${searchedAnime}&limit=4`)
             .then(res => res.json())
             .then(
                 (result) => {
@@ -51,12 +55,21 @@ let SearchResult = ({searchedAnime, addedAnime, setAddedAnime}) => {
             .catch(err => {
                 throw err;
             });
-
+        // }
     }, [searchedAnime])
 
 
     if (error) {
         return <div>Error: {error.message}</div>;
+    } else if (!searched) {
+        return (
+            <div className="loading-gif">
+                <div>
+                    {/* <img src="https://i.imgur.com/JDXVORV.gif" alt="uwu loading gif"/> */}
+                    <p class="loading-gif-label">Search For Any Anime ・ ( ꈍᴗꈍ)</p>
+                </div>
+            </div>
+            );
     } else if (!isLoaded) {
         return (
         <div className="loading-gif">

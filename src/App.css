@@ -32,6 +32,7 @@ button{
 	border-radius: 5px;
 	-webkit-transition: 0.3s;
     transition: 0.2s;
+	background-color: var(--clr-primary-light);
 }
 
 button:hover{

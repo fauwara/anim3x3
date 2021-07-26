@@ -1,4 +1,28 @@
 .animeResult{
     flex: 2;
     background-color: var(--clr-primary-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 600px;
+}
+
+.downloadButton{
+    /* color: var(--clr-dark-text); */
+    /* background-color: #fffef4; */
+    margin-top: 10px;
+    height: 35px;
+    width: 600px;
+    border: var(--clr-dark-white) solid 2px;
+    /* align-items: center; */
+    /* width: 100%; */
+}
+
+.downloadButton:hover{
+    /* color: var(--clr-dark-text); */
+    background-color: var(--clr-primary-light);
+    /* border: solid var(--clr-dark-white) 2px; */
+    /* width: 100%; */
 }

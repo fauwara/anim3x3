@@ -1,10 +1,10 @@
-.canvas-parent{
+/* .canvas-parent{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-}
+} */
 
-.canvas{
+#canvas{
     width: 600px;
 }

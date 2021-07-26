@@ -50,7 +50,7 @@ const Canvas = ({addedAnime}) => {
 
     return(
         <div className="canvas-parent">
-            <canvas className="canvas" ref={canvas} width={canvasWidth} height={canvasHeight}/>
+            <canvas id="canvas" ref={canvas} width={canvasWidth} height={canvasHeight}/>
         </div>
     );
     

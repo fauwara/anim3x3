@@ -1,6 +1,19 @@
 import '../css/result.css';
 import Canvas from './canvas'
 
+// let download3x3 = () => {
+//     var image = document.getElementById("canvas");
+    
+//     var link = document.createElement( 'a' );  
+//     link.download = 'image.png'; // set the name of the download file 
+//     link.href = image;
+//     // var link = document.createElement('a');
+//     // link.download = "my-image.png";
+//     // link.href = image;
+//     link.click();
+  
+// }
+
 let Workspace = ({addedAnime}) => {
 
     return (
@@ -11,6 +24,9 @@ let Workspace = ({addedAnime}) => {
                 ))}
             </ul> */}
             <Canvas addedAnime={addedAnime}/>
+            {/* <a href="javascript:canvas.toDataURL('image/jpeg');" download="download" >Download as jpeg</a> */}
+            <button class="downloadButton">SAVE ME SENPAI! (THIS BUTTON DOES NOT WORK)</button>
+            {/* <button class="downloadButton" onClick={download3x3(this)}>SAVE ME SENPAI!</button> */}
         </div>
     );
 

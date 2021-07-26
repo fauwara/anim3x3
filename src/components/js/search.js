@@ -3,8 +3,9 @@ import SearchResult from './searchRes';
 import { useState } from 'react';
 
 function Search({addedAnime, setAddedAnime}) {
-    const [searchInput, setSearchInput] = useState('k on');
-    
+    const [searchInput, setSearchInput] = useState();
+    const [searched, setSearched] = useState(false);
+
     let greySearchButton = (event) => {
         let len = event.target.value.length;
         
@@ -15,30 +16,25 @@ function Search({addedAnime, setAddedAnime}) {
 
     let getSearchInput = () => {
         let tempSearchInput = document.getElementById("search-form-input").value;
+        console.log(tempSearchInput);
+        setSearched(true);
         setSearchInput(tempSearchInput);
         // window.location = 'http://'+location.host;
-    }
-    
-    let disable = () => {
-        let searchButton = document.getElementById('search-form-button');
-        searchButton.disabled = true;
     }
 
     return (
         <div className="search">
             
             <div className="search-bar">
-                <div className="search-form">
-                    <form action="#" onSubmit={getSearchInput}>
-                        <input id="search-form-input" type="text" onInput={greySearchButton}/>
-                        <input id="search-form-button"type="submit" value="SEARCH" disabled/>
-                    </form>
-                </div>
+                <form className="search-form" action="#" onSubmit={getSearchInput}>
+                    <input id="search-form-input" type="text" onInput={greySearchButton}/>
+                    <input id="search-form-button" type="submit" value="SEARCH" disabled/>
+                </form>
                 <p className="search-note">*Enter a minimum of 3 letters for search.</p>
             </div>
 
             {/* search result */}
-            <SearchResult searchedAnime={searchInput} addedAnime={addedAnime} setAddedAnime={setAddedAnime}/>
+            <SearchResult searchedAnime={searchInput} addedAnime={addedAnime} setAddedAnime={setAddedAnime} searched={searched}/>
             {/* {disable()} */}
         </div>
     );
