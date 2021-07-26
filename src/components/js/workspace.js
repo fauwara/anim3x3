@@ -25,7 +25,7 @@ let Workspace = ({addedAnime}) => {
             </ul> */}
             <Canvas addedAnime={addedAnime}/>
             {/* <a href="javascript:canvas.toDataURL('image/jpeg');" download="download" >Download as jpeg</a> */}
-            <button class="downloadButton">SAVE ME SENPAI! (THIS BUTTON DOES NOT WORK)</button>
+            <button className="downloadButton">SAVE ME SENPAI! (THIS BUTTON DOES NOT WORK) JUST RIGHT CLICK AND SAVE AS</button>
             {/* <button class="downloadButton" onClick={download3x3(this)}>SAVE ME SENPAI!</button> */}
         </div>
     );

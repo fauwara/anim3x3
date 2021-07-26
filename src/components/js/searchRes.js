@@ -1,3 +1,4 @@
+
 import '../css/searchRes.css'
 import React from 'react';
 import { useState, useEffect } from 'react';
@@ -66,7 +67,7 @@ let SearchResult = ({searchedAnime, addedAnime, setAddedAnime, searched}) => {
             <div className="loading-gif">
                 <div>
                     {/* <img src="https://i.imgur.com/JDXVORV.gif" alt="uwu loading gif"/> */}
-                    <p class="loading-gif-label">Search For Any Anime ・ ( ꈍᴗꈍ)</p>
+                    <p className="loading-gif-label">Search For Any Anime ・ ( ꈍᴗꈍ)</p>
                 </div>
             </div>
             );
@@ -75,7 +76,7 @@ let SearchResult = ({searchedAnime, addedAnime, setAddedAnime, searched}) => {
         <div className="loading-gif">
             <div>
                 <img src="https://i.imgur.com/JDXVORV.gif" alt="uwu loading gif"/>
-                <p class="loading-gif-label">Loading...</p>
+                <p className="loading-gif-label">Loading...</p>
             </div>
         </div>
         );
