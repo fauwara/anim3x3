@@ -6,7 +6,7 @@ const Canvas = ({addedAnime}) => {
     const [canvasHeight, setCanvasHeight] = useState(900);
     const [canvasWidth, setCanvasWidth] = useState(900);
     const [canvasColour, setCanvasColour] = useState('#fff');
-    const [border, setBorder] = useState(20);
+    // const [border, setBorder] = useState(20);
 
     // basically size of a single img in the 3x3.
     let cell = canvasHeight/3;
