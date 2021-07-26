@@ -25,6 +25,7 @@ const Canvas = ({addedAnime}) => {
 
             // let border = 10;
 
+            console.log('yo');
             for(let x = 0, y = 0, count = 0; count < addedAnime.length; count++, x++){
                 
                 // to reset the x axis after three anime's have been added.
@@ -35,15 +36,16 @@ const Canvas = ({addedAnime}) => {
                 const img = new Image();
                 img.src = addedAnime[count].image_url;
 
-                // img.onload = () => {
+                img.onload = () => {
                     let clippedImgX = (img.width > cell) ? ((img.width/2)-(cell/2)) : 0;
                     let clippedImgY = (img.height > cell) ? ((img.height/2)-(cell/2)) : 0;
 
                 // params: img, clipWidth, clipHeight,
-                    ctx.drawImage(img, clippedImgX, clippedImgY, img.width, img.width, (cell*(x)), y, 300, 300);
+                    y = cell*((Math.floor((count)/3)));
                     x = cell*(x);
-                    y = cell*((Math.floor((count+1)/3)));
-                // }
+                    ctx.drawImage(img, clippedImgX, clippedImgY, img.width, img.width, x, y, 300, 300);
+                    console.log(`x:${x} y:${y}`);
+                }
             }
         }
       }, [addedAnime, canvas, cell]);
