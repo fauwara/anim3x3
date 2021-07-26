@@ -1,15 +1,18 @@
 import '../css/canvas.css';
-import {useState, useEffect, useRef  } from "react";
+import { useEffect, useRef  } from "react";
 
 const Canvas = ({addedAnime}) => {
 
-    const [canvasHeight, setCanvasHeight] = useState(900);
-    const [canvasWidth, setCanvasWidth] = useState(900);
-    const [canvasColour, setCanvasColour] = useState('#fff');
+    // const [canvasHeight] = useState(900);
+    const canvasHeight = 900;
+    // const [canvasWidth] = useState(900);
+    const canvasWidth = 900;
+    // const [canvasColour] = useState('#fff');
+    const canvasColour = '#fff';
     // const [border, setBorder] = useState(20);
 
     // basically size of a single img in the 3x3.
-    let cell = canvasHeight/3;
+    const cell = canvasHeight/3;
     
     const canvas = useRef(null);
 
@@ -22,29 +25,28 @@ const Canvas = ({addedAnime}) => {
 
             // let border = 10;
 
-            let y = 0;
-            for(let x = 0, count = 0; count < addedAnime.length; count++, x++){
+            for(let x = 0, y = 0, count = 0; count < addedAnime.length; count++, x++){
                 
                 // to reset the x axis after three anime's have been added.
-                if (x >= 3){
+                if (x > 2){
                     x = 0;
                 }
 
                 const img = new Image();
                 img.src = addedAnime[count].image_url;
 
-                img.onload = () => {
+                // img.onload = () => {
                     let clippedImgX = (img.width > cell) ? ((img.width/2)-(cell/2)) : 0;
                     let clippedImgY = (img.height > cell) ? ((img.height/2)-(cell/2)) : 0;
 
-                    // params: img, clipWidth, clipHeight,
+                // params: img, clipWidth, clipHeight,
                     ctx.drawImage(img, clippedImgX, clippedImgY, img.width, img.width, (cell*(x)), y, 300, 300);
                     x = cell*(x);
                     y = cell*((Math.floor((count+1)/3)));
-                }
+                // }
             }
         }
-      }, [addedAnime, canvas])
+      }, [addedAnime, canvas, cell]);
 
 
 
